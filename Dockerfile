@@ -1,16 +1,14 @@
 FROM node:16-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY ./src /app/src
 
-RUN apk --no-cache add --virtual builds-deps build-base python
+COPY .env /app
+
+COPY package*.json /app
 
 RUN npm install
 
 COPY . .
 
-
-EXPOSE 8302
-
-CMD ["npm","start"]

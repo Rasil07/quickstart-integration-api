@@ -1,14 +1,35 @@
 version: '3.8'
+
 services:
-  api:
-    build: .
+  monday-integration:
+    container_name: monday-api-integration
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=$PORT
+      - MONDAY_SIGNING_SECRET=$MONDAY_SIGNING_SECRET
+      - TUNNEL_SUBDOMAIN=$TUNNEL_SUBDOMAIN
+      - MONGO_URI=$MONGO_URI
+      - MONGO_DB_NAME=$MONGO_DB_NAME
+    volumes:
+      - ./src:/app/src
+      - ./.env:/app/.env
     ports:
-      - 8302:8302
+      - 8302:$PORT
+    command: ['npm', 'start']
     depends_on:
-      - db
-    container_name: monday-api
-  db:
-    image: mongo
+      - mongodb
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:5.0
+    restart: unless-stopped
     ports:
       - 27017:27017
-    container_name: monday-mongodb
+    env_file: ./.env
+    volumes:
+      - db:/data/db
+
+volumes:
+  db:
