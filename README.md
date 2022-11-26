@@ -7,21 +7,21 @@
 #### INSTALL DOCKER FIRST
 
 - First add .env file with fields
-  1.  PORT=8302 -> <port number you want your application to run at>
-  2.  MONDAY_SIGNING_SECRET= <signing secret key of app created in Monday.com>
-  3.  TUNNEL_SUBDOMAIN= -> <tunnel url for remote access>
-  4.  MONGO_URI= mongodb://mongodb:27017 -> <Mongo db url>
-  5.  MONGO_DB_NAME = <mongo DB database name>
+  1.  PORT=8302 -> "port number you want your application to run at"
+  2.  MONDAY_SIGNING_SECRET= "signing secret key of app created in Monday.com"
+  3.  TUNNEL_SUBDOMAIN= -> "tunnel url for remote access"
+  4.  MONGO_URI= mongodb://mongodb:27017 -> "Mongo db url"
+  5.  MONGO_DB_NAME = "mongo DB database name"
 - Run command 'docker-compose up --build' in your command line
 
 ## Using just npm
 
 - First add .env file with fields
-  1.  PORT=8302 -> <port number you want your application to run at>
-  2.  MONDAY_SIGNING_SECRET= <signing secret key of app created in Monday.com>
-  3.  TUNNEL_SUBDOMAIN= -> <tunnel url for remote access>
-  4.  MONGO_URI= mongodb://localhost:27017 -> <Mongo db url>
-  5.  MONGO_DB_NAME = <mongo DB database name>
+  1.  PORT=8302 -> "port number you want your application to run at"
+  2.  MONDAY_SIGNING_SECRET= "signing secret key of app created in Monday.com"
+  3.  TUNNEL_SUBDOMAIN= -> "tunnel url for remote access"
+  4.  MONGO_URI= mongodb://localhost:27017 -> "Mongo db url"
+  5.  MONGO_DB_NAME = "mongo DB database name"
 - Run command `npm install`
 - Run `npm start`
 
