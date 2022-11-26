@@ -1,14 +1,39 @@
+# Run Project
+
+## Using docker
+
+### Pre-requisite
+
+#### INSTALL DOCKER FIRST
+
+- First add .env file with fields
+  1.  PORT=8302 -> <port number you want your application to run at>
+  2.  MONDAY_SIGNING_SECRET= <signing secret key of app created in Monday.com>
+  3.  TUNNEL_SUBDOMAIN= -> <tunnel url for remote access>
+  4.  MONGO_URI= mongodb://mongodb:27017 -> <Mongo db url>
+  5.  MONGO_DB_NAME = <mongo DB database name>
+- Run command 'docker-compose up --build' in your command line
+
+## Using just npm
+
+- First add .env file with fields
+  1.  PORT=8302 -> <port number you want your application to run at>
+  2.  MONDAY_SIGNING_SECRET= <signing secret key of app created in Monday.com>
+  3.  TUNNEL_SUBDOMAIN= -> <tunnel url for remote access>
+  4.  MONGO_URI= mongodb://mongodb:27017 -> <Mongo db url>
+  5.  MONGO_DB_NAME = <mongo DB database name>
+- Run command `npm install`
+- Run `npm start`
+
 ## Overview
 
 This is the "Quickstart Integration" example Monday app.
-<br>It can be used as a board recipe, which transforms data from one text column to another
+<br>It can be used as a board recipe, which listens for any data change in board and saves the item details that has been changed in MongoDB.
 
 <br>This app demonstrates how to use the:
 
 - integration recipe
 - custom action
-- call authentication with JWT
-- query monday API using short lived token (seamless authentication)
 - remote options for custom fields
 
 <br>You can find more info in our QuickStart guide [here](https://monday.com/developers/apps/quickstart-integration/)
@@ -63,9 +88,9 @@ $ npm start
 ```
 
 3. Open http://localhost:4040/status
- to get your ngrok public url
+   to get your ngrok public url
 
- ### Part Five: Using the custom integration recipe
+### Part Five: Using the custom integration recipe
 
 You're done! Head to any of your boards to add the integration recipe by searching for its name (in this example the integration name is "New Feature").
 
